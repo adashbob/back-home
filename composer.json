@@ -1,0 +1,19 @@
+{
+    "name": "bobo/collectify",
+    "licence": "MIT",
+    "type": "project",
+    "description": "A tool to manage a collectify",
+    "authors": [
+        {
+            "name": "adashbob",
+            "email": "bobodiallobe@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {"" : "src/"}
+    },
+    "require": {
+        "fabpot/php-cs-fixer": "^1.11",
+        "gabordemooij/redbean": "dev-master"
+    }
+}
