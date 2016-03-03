@@ -2,13 +2,12 @@
 
 namespace Collectify\Model;
 
-
 use RedBeanPHP\SimpleModel;
 
-class Item extends SimpleModel
+abstract class BaseModel extends \RedBean_SimpleModel
 {
-    protected $title;
-    protected $author;
-    protected $lug;
+    protected $slug;
+    protected $createdAt;
+    protected $updatedAt;
 
 }

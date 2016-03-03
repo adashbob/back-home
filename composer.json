@@ -10,7 +10,9 @@
         }
     ],
     "autoload": {
-        "psr-0": {"" : "src/"}
+        "psr-4": {
+          "" : "src/"
+        }
     },
     "require": {
         "fabpot/php-cs-fixer": "^1.11",

@@ -2,9 +2,11 @@
 
 namespace Collectify\Model;
 
-class Item extends BaseModel
+class User extends BaseModel
 {
-    protected $title;
-    protected $author;
+    protected $firstname;
+    protected $lastname;
+    protected $username;
+    protected $password;
 
 }
