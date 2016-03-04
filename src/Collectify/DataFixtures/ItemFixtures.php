@@ -2,11 +2,13 @@
 
 namespace Collectify\DataFixtures;
 
+use Collectify\Model\ItemRepository;
+
 class ItemFixtures extends BaseFixtures
 {
     public function getType()
     {
-        return 'item';
+        return ItemRepository::TYPE;
     }
 
     public function getFixtures()

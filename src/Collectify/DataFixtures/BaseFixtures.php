@@ -1,23 +1,30 @@
 <?php
 
-
 namespace Collectify\DataFixtures;
 
-use RedBeanPHP\Facade as R;
 
+/**
+ * Class BaseFixtures
+ * @package Collectify\DataFixtures
+ */
 abstract class BaseFixtures
 {
+    public abstract function getType();
+
+    /**
+     * Load the model's fixtures.
+     * Call a create's member function of the appropriate repository
+     */
     public function loadFixtures()
     {
         $type = $this->getType();
         $fixtures = $this->getFixtures();
 
-        foreach ($fixtures as $fixture) {
-            $object = R::dispense($type);
-            foreach ($fixture as $property => $value) {
-                $object->$property = $value;
-            }
-            R::store($object);
+        foreach($fixtures as $fixture) {
+            $repositoryClass = sprintf('\\Collectify\\Model\\%sRepository', ucfirst($type));
+            $repository = new $repositoryClass();
+            $repository->create($fixture);
         }
+
     }
 }
