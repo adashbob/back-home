@@ -13,6 +13,12 @@ class Viewer
     protected $controllerParameters;
     protected $viewParameters;
     protected $viewPath;
+    protected $dynamizer;
+
+    public function __construct()
+    {
+        $this->dynamizer = new Dynamizer();;
+    }
 
     public function setControllerParameters($parameters)
     {
@@ -33,7 +39,12 @@ class Viewer
     public function render()
     {
         $viewPath = $this->createPath();
-        echo file_get_contents($viewPath);
+        $view =  file_get_contents($viewPath);
+        $this->dynamizer
+            ->setParameters($this->controllerParameters)
+            ->setView($view)
+            ->dynamize();
+
     }
 
 

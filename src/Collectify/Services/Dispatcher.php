@@ -5,10 +5,11 @@ namespace Collectify\Services;
 
 
 /**
- * Class Dispatcher
- * @package Collectify\Services
- *
  * Dispatcher the controller and the action
+ *
+ * Class Dispatcher
+ * @package Collectify\Services *
+ *
  */
 class Dispatcher
 {
