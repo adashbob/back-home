@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit colors="true" bootstrap="bootstrap.php">
+    <testsuites>
+        <testsuite name="Collectify test suite">
+            <directory>../src/Collectify/Tests/Unit/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

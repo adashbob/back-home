@@ -55,7 +55,7 @@ class Dynamizer
     public function dynamize(){
         $this->searchVariables();
         $this->replaceVariables();
-        echo $this->view;
+        return $this->view;
 
     }
 
@@ -75,6 +75,10 @@ class Dynamizer
      * @throws \Exception
      */
     public function replaceVariables(){
+
+        if(empty($this->variables)){
+            return;
+        }
         foreach ($this->variables as $pattern => $key) {
             $isObject = preg_match('/\./', $key);
             $isFunction = preg_match('/\((.*)\)/', $key);

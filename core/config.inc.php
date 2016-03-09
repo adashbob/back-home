@@ -13,7 +13,7 @@ define('DB_PASSWORD', 'bdiallo');
  * Redbean configuration
  */
 
-define('REDBEAN_MODEL_PREFIX', '\Collectify\Model');
+define('REDBEAN_MODEL_PREFIX', '\\Collectify\\Model\\');
 
 /**
  * Collectity configuration

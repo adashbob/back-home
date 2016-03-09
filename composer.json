@@ -16,6 +16,9 @@
     },
     "require": {
         "fabpot/php-cs-fixer": "^1.11",
-        "gabordemooij/redbean": "dev-master"
-    }
+        "gabordemooij/redbean": "dev-master",
+        "nibble/nibble-forms": "dev-master",
+        "phpunit/phpunit": "dev-master"
+    },
+    "minimum-stability": "dev"
 }

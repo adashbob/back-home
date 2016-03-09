@@ -40,7 +40,7 @@ class Viewer
     {
         $viewPath = $this->createPath();
         $view =  file_get_contents($viewPath);
-        $this->dynamizer
+        echo $this->dynamizer
             ->setParameters($this->controllerParameters)
             ->setView($view)
             ->dynamize();

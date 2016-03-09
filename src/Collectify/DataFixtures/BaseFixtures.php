@@ -20,9 +20,9 @@ abstract class BaseFixtures
         $type = $this->getType();
         $fixtures = $this->getFixtures();
 
+        $repositoryClass = sprintf('\\Collectify\\Model\\%sRepository', ucfirst($type));
+        $repository = new $repositoryClass();
         foreach($fixtures as $fixture) {
-            $repositoryClass = sprintf('\\Collectify\\Model\\%sRepository', ucfirst($type));
-            $repository = new $repositoryClass();
             $repository->create($fixture);
         }
 
