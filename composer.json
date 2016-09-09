@@ -1,8 +1,8 @@
 {
-    "name": "bobo/collectify",
+    "name": "bobo/home-fw",
     "licence": "MIT",
     "type": "project",
-    "description": "A tool to manage a collectify",
+    "description": "Framework maison",
     "authors": [
         {
             "name": "adashbob",

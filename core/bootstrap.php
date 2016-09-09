@@ -1,10 +1,14 @@
 <?php
-
-// Entry file to the application
+/**
+ * Charge les fichiers de configuration de l'app
+ * Charge l'autoload
+ */
 require_once __DIR__.'/config.inc.php';
 require_once __DIR__.'/../vendor/autoload.php';
 
-
+/**
+ * RedBeam: Interaction avec la base de donnés
+ */
 use RedBeanPHP\Facade as R;
 
 // Create the database
