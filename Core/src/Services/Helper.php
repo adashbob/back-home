@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Collectify\Services;
+namespace Core\Services;
 
 
 /**

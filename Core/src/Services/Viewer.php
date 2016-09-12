@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Collectify\Services;
+namespace Core\Services;
 
 
 /**
@@ -55,8 +55,8 @@ class Viewer
      */
     private function createPath()
     {
-        list($controller, $action) = $this->viewParameters;
-        $viewPathString = sprintf('../src/Collectify/Views/%s/%s.html', $controller, $action);
+        list($controller, $action, $module) = $this->viewParameters;
+        $viewPathString = sprintf('../src/%s/Views/%s/%s.html', $module, $controller, $action);
 
         if (!file_exists($viewPathString)) {
             throw new \Exception("view $viewPathString not found");

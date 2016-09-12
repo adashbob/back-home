@@ -1,11 +1,13 @@
 <?php
 $routes = array();
 $routesCategory = array(
+    'module' => 'Collectify',
     'basePath' => '/category',
     '/add' => 'Category:add',
     '/list' => 'Category:list'
 );
 $routesItem = array(
+    'module' => 'Collectify',
     'basePath' => '/item',
     '/add' => 'Item:add',
     '/list' => 'Item:list'

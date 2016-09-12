@@ -1,39 +1,25 @@
 <?php
 
 
-namespace Collectify\Services;
+namespace Core\Services;
 
 
 /**
- * Router the controller and the action
+ * Dispatcher the controller and the action
  *
- * Class Router
- * @package Collectify\Services *
+ * Class Dispatcher
+ * @package Core\Services
  *
  */
-class Router
+class Dispatcher
 {
     protected $parameters;
     protected $viewer;
     protected $controller;
     protected $action;
-    protected $routes;
-    protected $baseRoute;
-    protected $route;
 
-    public function __construct($routes = array()){
+    public function __construct(){
         $this->parameters = $_GET;
-        $this->routes = $routes;
-        if(isset($_SERVER['SCRIPT_NAME']))
-            $this->baseRoute = $_SERVER['SCRIPT_NAME'];
-        else
-            $this->baseRoute = array();
-
-        if(isset($_SERVER['PATH_INFO']))
-            $this->route = $_SERVER['PATH_INFO'];
-        else
-            $this->route = array();
-
         $this->viewer     = new Viewer();
     }
 
@@ -50,27 +36,12 @@ class Router
     }
 
     /**
+     * Extract the controller and action
      * @return array
-     * @throws \Exception
      */
     private function extractControllerAndActionParameter(){
-        if($this->route){
-            list($null, $module, $path) = explode("/", $this->route);
-            if(array_key_exists($module, $this->routes)){
-                $routeModule = $this->routes[$module];
-                $basePah = '/'.$module;
-                $path = '/'.$path;
-                if($routeModule['basePath'] == $basePah && array_key_exists($path, $routeModule)){
-                    list($this->controller, $this->action) = explode(':', $routeModule[$path]);
-                }else{
-                    throw new \Exception(sprintf("404 NOT FOUND La route %s n'exite pas", $routeModule));
-                }
-            }
-            else throw new \Exception('La clé module \'est pas définie');
-        }else{
-            $this->controller =  array_key_exists('controller', $this->parameters) ? $this->parameters['controller'] : DEFAULT_CONTROLLER;
-            $this->action =  array_key_exists('action', $this->parameters) ? $this->parameters['action'] : DEFAULT_ACTION;
-        }
+        $this->controller =  array_key_exists('controller', $this->parameters) ? $this->parameters['controller'] : DEFAULT_CONTROLLER;
+        $this->action =  array_key_exists('action', $this->parameters) ? $this->parameters['action'] : DEFAULT_ACTION;
         return array($this->controller, $this->action);
     }
 
@@ -80,6 +51,7 @@ class Router
      */
     public function executeAction(){
         $controllerClass = sprintf('\\Collectify\\Controller\\%sController', ucfirst($this->controller));
+
         if(!class_exists($controllerClass)){
             throw new \Exception("Controller $controllerClass not found");
         }
