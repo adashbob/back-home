@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Collectify\Model;
+namespace Core\Model;
 
 use RedBeanPHP\Facade as R;
 

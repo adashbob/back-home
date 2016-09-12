@@ -2,7 +2,7 @@
 
 
 // Class executed in CLI
-require_once __DIR__.'/../../../core/bootstrap.php';
+require_once __DIR__.'/../../../config/bootstrap.php';
 
 // the model passed in argument
 $className = $argv[1];

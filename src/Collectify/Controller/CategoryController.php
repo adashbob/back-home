@@ -12,7 +12,9 @@ class CategoryController
 {
     public function listAction()
     {
-        return array();
+        $repository = new CategoryRepository();
+
+        return array('categories' => $repository->getAll());
     }
 
     public function showAction($id)

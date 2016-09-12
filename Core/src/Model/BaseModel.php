@@ -1,6 +1,6 @@
 <?php
 
-namespace Collectify\Model;
+namespace Core\Model;
 
 use Nibble\NibbleForms\Useful;
 use RedBeanPHP\SimpleModel;
@@ -48,5 +48,12 @@ abstract class BaseModel extends SimpleModel
         $this->unBoxObject->updatedAt = $this->now;
     }
 
-
+    public function getAttributes()
+    {
+        $attributes = get_object_vars($this);
+        unset($attributes['unBoxObject']);
+        unset($attributes['now']);
+        unset($attributes['bean']);
+        return $attributes;
+    }
 }

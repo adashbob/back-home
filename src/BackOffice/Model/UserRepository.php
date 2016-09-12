@@ -1,13 +1,13 @@
 <?php
 
-namespace Collectify\Model;
+namespace BackOffice\Model;
 
 
 use Core\Model\BaseRepository;
 
-class CategoryRepository extends BaseRepository
+class UserRepository extends BaseRepository
 {
-    const TYPE = 'category';
+    const TYPE = 'user';
 
     public function getType(){
         return self::TYPE;

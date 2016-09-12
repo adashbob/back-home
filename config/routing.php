@@ -13,6 +13,14 @@ $routesItem = array(
     '/list' => 'Item:list'
 );
 
+$routesUser = array(
+    'module' => 'BackOffice',
+    'basePath' => '/user',
+    '/add' => 'User:add',
+    '/list' => 'User:list'
+);
+
 $routes['category'] = $routesCategory;
 $routes['item'] = $routesItem;
+$routes['user'] = $routesUser;
 define('__ROUTES__', $routes);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Collectify\Model;
+namespace BackOffice\Model;
 
 use Core\Model\BaseModel;
 

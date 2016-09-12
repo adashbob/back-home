@@ -3,6 +3,8 @@
 namespace Collectify\Model;
 
 
+use Core\Model\BaseRepository;
+
 class UserRepository extends BaseRepository
 {
     const TYPE = 'user';

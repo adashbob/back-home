@@ -26,6 +26,7 @@ class Dynamizer
      */
     protected $variables;
     protected $helper;
+    protected $viewParameters;
 
     public function __construct(){
         $this->helper = new Helper();
@@ -39,6 +40,13 @@ class Dynamizer
     public function setParameters($parameters)
     {
         $this->parameters = $parameters;
+        return $this;
+    }
+
+    public function setViewParameters($parameters)
+    {
+        $this->viewParameters = $parameters;
+        $this->helper->setViewParameters($parameters);
         return $this;
     }
 

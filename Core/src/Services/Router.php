@@ -2,6 +2,7 @@
 
 
 namespace Core\Services;
+use Core\Exception\Exception;
 
 
 /**
@@ -56,6 +57,11 @@ class Router
     protected $module;
 
     /**
+     * @var Exception
+     */
+    protected $exception;
+
+    /**
      * Router constructor.
      * @param array $routes
      */
@@ -69,6 +75,7 @@ class Router
             $this->route = array();
 
         $this->viewer     = new Viewer();
+        $this->exception = new Exception();
     }
 
     /**
@@ -82,6 +89,11 @@ class Router
             ->setControllerParameters($controllerParameters)
             ->render();
     }
+
+    /*public function loadTwig(){
+        \Twig_Autoloader::register();
+        $loader = new Twig_Loader_Filesystem(sprintf('../src/%s/Views', $this->module));
+    }*/
 
     /**
      * @return array
@@ -101,10 +113,10 @@ class Router
                     $this->module = $routeInfo['module'];
                     list($this->controller, $this->action) = explode(':', $routeInfo[$path]);
                 }else{
-                    throw new \Exception(sprintf("404 NOT FOUND La route %s n'exite pas", $routeInfo));
+                    $this->exception->notFound();
                 }
             }
-            else throw new \Exception('La clé module \'est pas définie');
+            else $this->exception->notFound();
         }else{
             $this->controller =  array_key_exists('controller', $this->parameters) ? $this->parameters['controller'] : DEFAULT_CONTROLLER;
             $this->action =  array_key_exists('action', $this->parameters) ? $this->parameters['action'] : DEFAULT_ACTION;
