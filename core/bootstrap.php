@@ -3,6 +3,7 @@
  * Charge les fichiers de configuration de l'app
  * Charge l'autoload
  */
+require_once __DIR__.'/routing.php';
 require_once __DIR__.'/config.inc.php';
 require_once __DIR__.'/../vendor/autoload.php';
 

@@ -10,6 +10,6 @@ class HomeController
     public function homepageAction()
     {
         $item = R::load(ItemRepository::TYPE, 9);
-        return array('item' => $item);
+        return array('item' => 'bobo');
     }
 }
